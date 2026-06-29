@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block nothing important; allow full crawl
+Disallow: /build_pages.ps1
+
+Sitemap: https://dentalden.co/sitemap.xml

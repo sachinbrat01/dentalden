@@ -1,0 +1,2 @@
+# Netlify redirects — force canonical homepage
+/index.html   /   301!
