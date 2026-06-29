@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="UHS97jTYPfZa3d7F1G2LdrDlgJXZRvi7_8duLztlJfA" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41D6GF46D6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41D6GF46D6');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog · Dental Den — Oral Health Insights by Dr. Tanya Kusum, Andheri West, Mumbai</title>
+
+<!-- Editorial typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ==================================================================
+     Base tokens, layout, buttons, nav, footer — matched to index.html
+     ================================================================== -->
+<style>
+  :root {
+    --cream:        #f4f7fb;
+    --cream-warm:   #e8eef6;
+    --ink:          #1a1f3a;
+    --ink-soft:     #5a6478;
+    --navy:         #2A3D8F;
+    --navy-deep:    #1D2B5B;
+    --gold:         #C5A059;
+    --gold-deep:    #A7833F;
+    --accent-light: #6B9FCC;
+    --rule:         #c8d4e4;
+    --whatsapp:     #25d366;
+
+    --serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    --mono:  "JetBrains Mono", "SF Mono", Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--cream); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* CSS Scroll Snapping */
+  html {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
+  header, section, footer {
+    scroll-snap-align: start;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent-light); color: #fff; }
+
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 1;
+    background-image: radial-gradient(rgba(26,31,58,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+  }
+
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2; }
+  @media (max-width: 820px) { .wrap { padding: 0 20px; } }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--serif);
+    color: var(--navy-deep);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0;
+  }
+  h1.display { font-weight: 500; letter-spacing: -0.025em; line-height: 0.96; }
+  h1.display em { font-style: italic; font-weight: 400; }
+  h2 { font-size: clamp(36px, 4.5vw, 64px); font-weight: 500; }
+  h2 em { font-style: italic; font-weight: 400; }
+  p { margin: 0; }
+
+  .lede {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--navy-deep);
+    font-weight: 500;
+  }
+  .lede em { font-style: italic; color: var(--navy-deep); }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy-deep); font-weight: 600;
+  }
+  .eyebrow.gold { color: var(--gold); }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    border-radius: 1px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+    line-height: 1;
+    text-decoration: none;
+  }
+  .btn-arrow::after {
+    content: "→";
+    transition: transform 0.25s;
+    font-family: var(--serif); font-size: 14px; letter-spacing: 0;
+  }
+  .btn-arrow:hover::after { transform: translateX(4px); }
+  .btn-primary { background: var(--navy-deep); color: var(--cream); }
+  .btn-primary:hover { background: var(--navy); }
+  .btn-gold { background: var(--gold); color: var(--navy-deep); }
+  .btn-gold:hover { background: var(--gold-deep); color: var(--cream); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--navy-deep);
+    border: 1px solid var(--navy-deep);
+  }
+  .btn-ghost:hover { background: var(--navy-deep); color: var(--cream); }
+  .btn-whatsapp { background: var(--whatsapp); color: #fff; }
+  .btn-whatsapp:hover { background: #1ea952; }
+
+  /* Nav — exact match to index.html */
+  #nav-host {
+    position: sticky; top: 0; z-index: 1000;
+  }
+  .nav {
+    background: rgba(244, 247, 251, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    height: 110px; display: flex; align-items: center;
+  }
+  .nav-inner {
+    width: 100%; max-width: 1320px; margin: 0 auto;
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+  .nav-brand .nav-logo {
+    height: 86px;
+    width: auto;
+    display: block;
+  }
+  .nav-brand .mark {
+    font-family: var(--serif); font-style: italic;
+    font-size: 24px; color: var(--navy-deep); line-height: 1;
+  }
+  .nav-brand .mark em { color: var(--accent-light); }
+  .nav-brand .reg {
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-family: var(--sans); font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--ink); position: relative;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a.active::after {
+    content: ""; position: absolute;
+    bottom: -6px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+  }
+  .nav-cta {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 10px 18px;
+    background: var(--navy-deep); color: var(--cream);
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--navy); }
+  @media (max-width: 820px) {
+    .nav { height: auto; padding: 12px 0; }
+    .nav-inner { padding: 0 20px; }
+    .nav-links { 
+      display: none; 
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--cream); border-bottom: 1px solid var(--rule);
+      flex-direction: column; gap: 0; padding: 20px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 15px 40px; border-bottom: 1px solid rgba(0,0,0,0.03); }
+    .nav-links a.active::after { display: none; }
+    
+    .nav-mobile-toggle {
+      display: flex; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 5px;
+    }
+    .nav-mobile-toggle span {
+      width: 24px; height: 2px; background: var(--navy-deep);
+      transition: 0.3s;
+    }
+    .nav-mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-mobile-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    
+    .nav-cta { display: none; }
+  }
+  @media (min-width: 821px) {
+    .nav-mobile-toggle { display: none; }
+  }
+
+  /* Footer — exact match to index.html */
+  .ftr {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.7);
+    padding: 80px 0 32px;
+  }
+  .ftr-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 60px; padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .ftr-brand .mark {
+    font-family: var(--serif); font-style: italic;
+    font-size: 32px; color: var(--cream);
+  }
+  .ftr-brand .mark em { color: var(--gold); }
+  .ftr-brand p { margin-top: 18px; max-width: 320px; font-size: 14px; line-height: 1.6; }
+  .ftr-col h5 {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin: 0 0 18px; font-weight: 500;
+  }
+  .ftr-col a, .ftr-col p {
+    display: block; font-size: 14px; line-height: 2;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.2s;
+  }
+  .ftr-col a:hover { color: var(--gold); }
+  .ftr-bottom {
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  @media (max-width: 820px) {
+    .ftr-grid { grid-template-columns: 1fr 1fr; gap: 40px; padding-bottom: 40px; }
+    .ftr-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  /* Rise reveal animation */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .rise {
+    opacity: 0;
+    animation: rise 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+  .rise.d1 { animation-delay: 0.10s; }
+  .rise.d2 { animation-delay: 0.25s; }
+  .rise.d3 { animation-delay: 0.40s; }
+  .rise.d4 { animation-delay: 0.55s; }
+  @media (prefers-reduced-motion: reduce) {
+    .rise, .rise.d1, .rise.d2, .rise.d3, .rise.d4 {
+      animation: none; opacity: 1;
+    }
+  }
+</style>
+
+<!-- ==================================================================
+     Blog-specific styles
+     ================================================================== -->
+<style>
+  /* ── Blog Hero ── */
+  .blog-hero {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .blog-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+  .blog-hero h1 {
+    font-size: clamp(56px, 7vw, 100px);
+    line-height: 0.95;
+    margin-top: 18px;
+  }
+  .blog-hero h1 em { color: var(--accent-light); font-style: italic; }
+  .blog-hero .lede-wrap { margin-top: 24px; max-width: 420px; }
+  .blog-hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 40px;
+    border-left: 1px solid var(--rule);
+  }
+  .topic-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .topic-pill {
+    padding: 8px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft); cursor: pointer;
+    transition: all 0.2s; background: transparent;
+  }
+  .topic-pill:hover { border-color: var(--navy); color: var(--navy); }
+  .topic-pill.active { background: var(--navy-deep); color: var(--cream); border-color: var(--navy-deep); }
+  @media (max-width: 820px) {
+    .blog-hero-grid { grid-template-columns: 1fr; gap: 30px; }
+    .blog-hero-right { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); padding-top: 20px; }
+  }
+
+  /* ── Featured Post ── */
+  .featured-post { padding: 80px 0 60px; }
+  .featured-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .featured-img {
+    position: relative;
+    background: linear-gradient(135deg, #c8d4e4 0%, #6B9FCC 100%);
+    min-height: 480px;
+    overflow: hidden;
+  }
+  .featured-img::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent 0, transparent 22px, rgba(29,43,91,0.06) 22px, rgba(29,43,91,0.06) 23px);
+  }
+  .featured-img .tag {
+    position: absolute; top: 24px; left: 24px;
+    background: var(--gold); color: var(--navy-deep);
+    padding: 7px 14px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    z-index: 3; font-weight: 500;
+  }
+  .featured-img .ph-label {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(29,43,91,0.45);
+  }
+  .featured-content {
+    padding: 50px 44px;
+    background: var(--cream-warm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .featured-content .meta-row {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink-soft);
+  }
+  .featured-content .meta-row .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+  .featured-content h2 {
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .featured-content h2 em { color: var(--accent-light); font-style: italic; }
+  .featured-content .excerpt {
+    font-family: var(--serif); font-size: 18px; line-height: 1.55;
+    color: var(--navy-deep); margin-bottom: 36px;
+  }
+  .featured-content .author-row {
+    display: flex; align-items: center; gap: 14px;
+    padding-top: 22px; border-top: 1px solid var(--rule);
+  }
+  .featured-content .author-row .av {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--navy-deep); color: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 12px; font-weight: 500;
+  }
+  .featured-content .author-row .meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+  .featured-content .author-row .meta b { color: var(--navy-deep); font-weight: 500; display: block; margin-bottom: 2px; }
+  @media (max-width: 920px) { .featured-inner { grid-template-columns: 1fr; } .featured-img { min-height: 300px; } }
+
+  /* ── Blog Grid ── */
+  .blog-grid-section { padding: 30px 0 110px; }
+  .section-label {
+    display: flex; align-items: center; gap: 18px;
+    margin-bottom: 40px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section-label h3 { font-size: 32px; }
+  .section-label h3 em { color: var(--accent-light); font-style: italic; }
+  .section-label .count { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--ink-soft); margin-left: auto; }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .blog-card {
+    border: 1px solid var(--rule);
+    background: var(--cream);
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  .blog-card:hover {
+    box-shadow: 0 20px 50px -16px rgba(29,43,91,0.18);
+    transform: translateY(-3px);
+  }
+  .blog-card .card-img {
+    aspect-ratio: 16/10;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-card .card-img .ph {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .blog-card .card-img .ph::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent 0, transparent 20px, rgba(29,43,91,0.05) 20px, rgba(29,43,91,0.05) 21px);
+  }
+  /* Category-colored placeholder gradients (navy/blue/gold palette) */
+  .cat-implants    { background: linear-gradient(135deg, #d4dcec 0%, #6B9FCC 100%); }
+  .cat-smile       { background: linear-gradient(135deg, #e8eef6 0%, #a8c2dc 100%); }
+  .cat-hygiene     { background: linear-gradient(135deg, #dde6f0 0%, #8ba8c4 100%); }
+  .cat-ortho       { background: linear-gradient(135deg, #ede4cc 0%, #C5A059 100%); }
+  .cat-pediatric   { background: linear-gradient(135deg, #e0d8ec 0%, #9f8cb8 100%); }
+  .cat-surgery     { background: linear-gradient(135deg, #c8d2e4 0%, #2A3D8F 100%); }
+  .cat-endo        { background: linear-gradient(135deg, #d8e0ec 0%, #6B9FCC 100%); }
+  .cat-nutrition   { background: linear-gradient(135deg, #ede0c4 0%, #b89855 100%); }
+
+  .blog-card .card-cat {
+    position: absolute; bottom: 14px; left: 14px;
+    background: var(--cream);
+    padding: 5px 11px;
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--navy-deep);
+    z-index: 2; font-weight: 500;
+  }
+  .blog-card .card-body {
+    padding: 26px 28px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .blog-card .card-meta {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .blog-card .card-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
+  .blog-card h3 {
+    font-size: 22px; line-height: 1.15;
+    margin-bottom: 14px;
+    color: var(--navy-deep);
+  }
+  .blog-card h3 em { color: var(--accent-light); font-style: italic; }
+  .blog-card p {
+    font-size: 14px; line-height: 1.65;
+    color: var(--ink-soft); flex: 1;
+  }
+  .blog-card .card-foot {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .blog-card .card-foot .read-time { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+  .blog-card .card-foot .arr { color: var(--navy-deep); font-size: 18px; transition: transform 0.25s; }
+  .blog-card:hover .card-foot .arr { transform: translateX(4px); color: var(--gold); }
+
+  /* Wide card */
+  .blog-card.wide { grid-column: span 2; }
+  .blog-card.wide .card-img { aspect-ratio: 21/9; }
+
+  @media (max-width: 920px) { .blog-grid { grid-template-columns: 1fr 1fr; } .blog-card.wide { grid-column: span 2; } }
+  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } .blog-card.wide { grid-column: span 1; } }
+
+  /* ── Newsletter Band ── */
+  .newsletter {
+    background: var(--navy-deep);
+    padding: 90px 0;
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .newsletter::before {
+    content: "";
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(197,160,89,0.30), transparent 70%);
+    pointer-events: none;
+  }
+  .newsletter-inner {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center;
+    position: relative; z-index: 2;
+  }
+  .newsletter h2 { color: var(--cream); font-size: clamp(36px, 4vw, 60px); line-height: 1; }
+  .newsletter h2 em { color: var(--gold); font-style: italic; }
+  .newsletter p { color: rgba(255,255,255,0.75); margin-top: 18px; font-size: 16px; line-height: 1.6; max-width: 460px; }
+  .nl-form { display: flex; gap: 0; }
+  .nl-form input {
+    flex: 1; padding: 16px 20px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-right: none;
+    color: var(--cream); font-family: var(--sans); font-size: 15px;
+    outline: none;
+    transition: background 0.2s;
+  }
+  .nl-form input::placeholder { color: rgba(255,255,255,0.5); }
+  .nl-form input:focus { background: rgba(255,255,255,0.16); }
+  .nl-form button {
+    padding: 16px 26px;
+    background: var(--gold); color: var(--navy-deep);
+    border: none; cursor: pointer;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    transition: background 0.2s; white-space: nowrap;
+    font-weight: 500;
+  }
+  .nl-form button:hover { background: var(--gold-deep); color: var(--cream); }
+  .nl-note { margin-top: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); text-transform: uppercase; }
+  @media (max-width: 820px) { .newsletter-inner { grid-template-columns: 1fr; gap: 30px; } .nl-form { flex-direction: column; } .nl-form input { border-right: 1px solid rgba(255,255,255,0.25); border-bottom: none; } }
+
+  /* ── Topics Strip ── */
+  .topics { padding: 90px 0; background: var(--cream-warm); }
+  .topics-head { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 0; }
+  .topics-head h2 em { color: var(--accent-light); font-style: italic; }
+  .topics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); margin-top: 40px; }
+  .topic-card {
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 30px 26px;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+    background: var(--cream-warm);
+  }
+  .topic-card::before { content: ""; position: absolute; top: 0; left: 0; width: 30px; height: 3px; background: var(--gold); }
+  .topic-card:hover { background: var(--cream); }
+  .topic-card .t-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--gold); margin-bottom: 12px; }
+  .topic-card h4 { font-size: 22px; margin-bottom: 8px; }
+  .topic-card h4 em { color: var(--accent-light); font-style: italic; }
+  .topic-card p { font-size: 13px; line-height: 1.55; color: var(--ink-soft); }
+  .topic-card .t-count { margin-top: 16px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+  @media (max-width: 920px) { .topics-grid { grid-template-columns: 1fr 1fr; } .topics-head { grid-template-columns: 1fr; gap: 24px; } }
+  @media (max-width: 600px) { .topics-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div id="nav-host"></div>
+
+<!-- BLOG HERO -->
+<header class="blog-hero">
+  <div class="wrap">
+    <div class="blog-hero-grid">
+      <div>
+        <span class="eyebrow">§ Insights — Oral health &amp; beyond</span>
+        <h1 class="rise d1">
+          The <em>Dental</em><br>Den Journal.
+        </h1>
+        <div class="lede-wrap rise d2">
+          <p class="lede">
+            Evidence-based articles on dental health, cosmetic dentistry, and <em>what actually matters</em> for your smile — written by Dr. Tanya Kusum.
+          </p>
+        </div>
+        <div style="display:flex; gap:12px; margin-top:32px;" class="rise d3">
+          <a href="contact.html" class="btn btn-primary btn-arrow">Book a consult</a>
+          <a href="https://wa.me/917208909768" class="btn btn-whatsapp">WhatsApp us</a>
+        </div>
+      </div>
+      <div class="blog-hero-right rise d2">
+        <div>
+          <span class="eyebrow gold" style="margin-bottom:14px; display:block;">Browse by topic</span>
+          <div class="topic-pills">
+            <button class="topic-pill active">All</button>
+            <button class="topic-pill">Implants</button>
+            <button class="topic-pill">Cosmetic</button>
+            <button class="topic-pill">Hygiene</button>
+            <button class="topic-pill">Orthodontics</button>
+            <button class="topic-pill">Children</button>
+            <button class="topic-pill">Surgery</button>
+            <button class="topic-pill">Nutrition</button>
+          </div>
+        </div>
+        <div style="margin-top:auto; padding-top:24px; border-top:1px solid var(--rule);">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+            <div>
+              <div style="font-family:var(--serif); font-size:36px; color:var(--navy-deep); line-height:1;">24<em style="color:var(--gold); font-style:italic;">+</em></div>
+              <div style="font-family:var(--mono); font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft); margin-top:4px;">Articles published</div>
+            </div>
+            <div>
+              <div style="font-family:var(--serif); font-size:36px; color:var(--navy-deep); line-height:1;">12<em style="color:var(--gold); font-style:italic;">+</em></div>
+              <div style="font-family:var(--mono); font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft); margin-top:4px;">Speciality topics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURED POST -->
+<section class="featured-post">
+  <div class="wrap">
+    <span class="eyebrow gold" style="margin-bottom:22px; display:block;">§ Editor's pick — Featured article</span>
+    <div class="featured-inner">
+      <div class="featured-img cat-implants">
+        <div class="ph-label">Dental Implants · Featured</div>
+        <span class="tag">★ Featured</span>
+      </div>
+      <div class="featured-content">
+        <div>
+          <div class="meta-row">
+            <span>June 2026</span>
+            <span class="dot"></span>
+            <span>Implants</span>
+            <span class="dot"></span>
+            <span>10 min read</span>
+          </div>
+          <h2>Dental Implants Cost in Mumbai 2026: <em>Full Price Breakdown</em>.</h2>
+          <p class="excerpt">
+            An honest, transparent guide to dental implants cost in Mumbai for 2026. Compare pricing by brand, type, and country. EMI options and what's actually included in a single-tooth or full-mouth restoration.
+          </p>
+        </div>
+        <div>
+          <a href="blog/dental-implants-cost-mumbai-2026.html" class="btn btn-primary btn-arrow" style="margin-bottom:30px;">Read full article</a>
+          <div class="author-row">
+            <div class="av">TK</div>
+            <div class="meta">
+              <b>Dr. Tanya Kusum</b>
+              BDS, MDS · Oral &amp; Maxillofacial Surgeon
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG GRID -->
+<section class="blog-grid-section">
+  <div class="wrap">
+    <div class="section-label">
+      <h3>Recent <em>articles</em></h3>
+      <span class="count">— 2 of 2</span>
+    </div>
+
+    <div class="blog-grid">
+
+      <article class="blog-card" onclick="window.location.href='blog/teeth-whitening-home-vs-clinic.html'">
+        <div class="card-img cat-smile">
+          <div class="ph" style="color:rgba(29,43,91,0.35)">Teeth Whitening</div>
+          <span class="card-cat">Cosmetic</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>June 2026</span><span class="dot"></span><span>9 min</span></div>
+          <h3>Teeth Whitening at Home vs. Clinic: <em>What Actually Works</em>?</h3>
+          <p>An honest, evidence-based look at home vs clinic whitening — what's a myth, what actually works, and how to get real, lasting results.</p>
+          <div class="card-foot">
+            <span class="read-time">9 min read</span>
+            <span class="arr">→</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="blog-card" onclick="window.location.href='blog/dental-implants-cost-mumbai-2026.html'">
+        <div class="card-img cat-implants">
+          <div class="ph" style="color:rgba(29,43,91,0.35)">Dental Implants</div>
+          <span class="card-cat">Implants</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>June 2026</span><span class="dot"></span><span>10 min</span></div>
+          <h3>Dental Implants Cost in Mumbai 2026: <em>Full Price Breakdown</em>.</h3>
+          <p>An honest, transparent guide to dental implants cost in Mumbai for 2026. Compare pricing by brand, type, and country. EMI options and inclusions.</p>
+          <div class="card-foot">
+            <span class="read-time">10 min read</span>
+            <span class="arr">→</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="wrap">
+    <div class="newsletter-inner">
+      <div>
+        <span class="eyebrow gold" style="margin-bottom:18px; display:block;">§ Stay informed</span>
+        <h2>Dental wisdom,<br><em>once a month</em>.</h2>
+        <p>No spam. Just one useful article every four weeks — written for patients who want to understand their oral health, not just be told what to do.</p>
+      </div>
+      <div>
+        <div class="nl-form">
+          <input type="email" placeholder="Your email address">
+          <button type="button">Subscribe →</button>
+        </div>
+        <div class="nl-note">No spam · Unsubscribe any time · Mumbai-based practice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section class="topics">
+  <div class="wrap">
+    <div class="topics-head">
+      <div>
+        <span class="eyebrow gold">§ Browse by category</span>
+        <h2 style="margin-top:14px; font-size:clamp(36px,4.5vw,60px);">Find what <em>matters</em><br>to you.</h2>
+      </div>
+      <p style="font-family:var(--serif); font-size:18px; line-height:1.55; color:var(--navy-deep);">
+        Every article is written from the chair — based on the questions real patients ask Dr. Tanya every week.
+      </p>
+    </div>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <div class="t-num">— 01</div>
+        <h4>Dental <em>Implants</em></h4>
+        <p>Candidacy, procedure, recovery, costs, and what a lifetime warranty actually means.</p>
+        <div class="t-count">5 articles</div>
+      </div>
+      <div class="topic-card">
+        <div class="t-num">— 02</div>
+        <h4>Cosmetic <em>Dentistry</em></h4>
+        <p>Veneers, whitening, bonding, gum contouring — the aesthetics of the modern smile.</p>
+        <div class="t-count">6 articles</div>
+      </div>
+      <div class="topic-card">
+        <div class="t-num">— 03</div>
+        <h4>Oral <em>Hygiene</em></h4>
+        <p>Brushing, flossing, diet, the bi-annual clean — building habits that keep teeth for life.</p>
+        <div class="t-count">4 articles</div>
+      </div>
+      <div class="topic-card">
+        <div class="t-num">— 04</div>
+        <h4><em>Children's</em> Dentistry</h4>
+        <p>First visits, milk teeth, fluoride, and how to make dental care something kids don't dread.</p>
+        <div class="t-count">3 articles</div>
+      </div>
+      <div class="topic-card">
+        <div class="t-num">— 05</div>
+        <h4>Orthodontics &amp; <em>Aligners</em></h4>
+        <p>Invisalign, braces, retainers, and what to expect from modern tooth-straightening.</p>
+        <div class="t-count">3 articles</div>
+      </div>
+      <div class="topic-card">
+        <div class="t-num">— 06</div>
+        <h4>Oral <em>Surgery</em></h4>
+        <p>Wisdom teeth, jaw pain, TMJ, and what "maxillofacial" actually covers.</p>
+        <div class="t-count">3 articles</div>
+      </div>
+      <div class="topic-card">
+        <div class="t-num">— 07</div>
+        <h4>Nutrition &amp; <em>Teeth</em></h4>
+        <p>What you eat affects your enamel, gums, and jawbone — the diet-dentistry connection.</p>
+        <div class="t-count">2 articles</div>
+      </div>
+      <div class="topic-card">
+        <div class="t-num">— 08</div>
+        <h4>Endodontics &amp; <em>Root Canals</em></h4>
+        <p>Everything about saving teeth from the inside — root canals, re-treatment, and pain myths.</p>
+        <div class="t-count">2 articles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div id="footer-host"></div>
+
+<!-- ==================================================================
+     Inlined chrome.js — mounts nav and footer (matched to index.html)
+     ================================================================== -->
+<script>
+  // Hide broken images gracefully
+  document.querySelectorAll('img').forEach(function(img) {
+    img.addEventListener('error', function() { img.style.display = 'none'; });
+    if (img.complete && img.naturalWidth === 0) img.style.display = 'none';
+  });
+
+  // Topic pill filter (visual only)
+  document.querySelectorAll('.topic-pill').forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      document.querySelectorAll('.topic-pill').forEach(function(p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+    });
+  });
+
+  function mountChrome(activePage) {
+    var navHost = document.getElementById('nav-host');
+    var footHost = document.getElementById('footer-host');
+
+    if (navHost) {
+      navHost.innerHTML =
+        '<nav class="nav">' +
+          '<div class="nav-inner">' +
+            '<a href="index.html" class="nav-brand">' +
+              '<img src="img/logo-header.png" alt="Dental Den Logo" class="nav-logo">' +
+            '</a>' +
+            '<div class="nav-links" id="mobile-nav-links">' +
+              '<a href="index.html" data-page="home">Home</a>' +
+              '<a href="services.html" data-page="services">Services</a>' +
+              '<a href="about.html" data-page="about">About</a>' +
+              '<a href="blog.html" data-page="blog">Blog</a>' +
+              '<a href="contact.html" data-page="contact">Contact</a>' +
+            '</div>' +
+            '<a href="contact.html" class="nav-cta">Book a visit →</a>' +
+            '<div class="nav-mobile-toggle" id="nav-toggle">' +
+              '<span></span><span></span><span></span>' +
+            '</div>' +
+          '</div>' +
+        '</nav>';
+
+      var navToggle = navHost.querySelector('#nav-toggle');
+      var mobileLinks = navHost.querySelector('#mobile-nav-links');
+      if (navToggle) {
+        navToggle.addEventListener('click', function() {
+          navToggle.classList.toggle('open');
+          mobileLinks.classList.toggle('open');
+        });
+      }
+
+      var links = navHost.querySelectorAll('.nav-links a');
+      for (var i = 0; i < links.length; i++) {
+        if (links[i].getAttribute('data-page') === activePage) {
+          links[i].classList.add('active');
+        }
+      }
+    }
+
+    if (footHost) {
+      var year = new Date().getFullYear();
+      footHost.innerHTML =
+        '<footer class="ftr">' +
+          '<div class="wrap">' +
+            '<div class="ftr-grid">' +
+              '<div class="ftr-brand">' +
+                '<img src="img/logo.png" alt="Dental Den Logo" style="height: 90px; width: auto; margin-bottom: 14px; filter: brightness(0) invert(1);">' +
+                '<p>A modern boutique multi-speciality dental practice in Andheri West, Mumbai. Led by Dr. Tanya Kusum — oral &amp; maxillofacial surgeon.</p>' +
+              '</div>' +
+              '<div class="ftr-col">' +
+                '<h5>Visit</h5>' +
+                '<p>Marble Arch, Shastri Nagar<br>Andheri West, Mumbai 400053</p>' +
+                '<p>Mon–Sat · 10am – 9pm</p>' +
+              '</div>' +
+              '<div class="ftr-col">' +
+                '<h5>Reach</h5>' +
+                '<a href="tel:+917208909768">+91 72089 09768</a>' +
+                '<a href="https://wa.me/917208909768">WhatsApp</a>' +
+                '<a href="mailto:hello@dentalden.in">hello@dentalden.in</a>' +
+              '</div>' +
+              '<div class="ftr-col">' +
+                '<h5>Practice</h5>' +
+                '<a href="services.html">All services</a>' +
+                '<a href="about.html">About Dr. Tanya</a>' +
+                '<a href="blog.html">Blog</a>' +
+                '<a href="contact.html">Book a visit</a>' +
+              '</div>' +
+            '</div>' +
+            '<div class="ftr-bottom">' +
+              '<div>© ' + year + ' Dental Den · Andheri West, Mumbai</div>' +
+              '<div>Crafted in Mumbai</div>' +
+            '</div>' +
+          '</div>' +
+        '</footer>';
+    }
+  }
+
+  mountChrome('blog');
+</script>
+</body>
+</html>
